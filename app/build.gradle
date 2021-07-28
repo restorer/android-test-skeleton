@@ -1,0 +1,88 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'org.jetbrains.kotlin.plugin.serialization' version '1.5.20'
+    id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'kotlin-parcelize'
+}
+
+android {
+    compileSdkVersion 30
+
+    defaultConfig {
+        applicationId "com.example.test"
+
+        minSdkVersion 16
+        targetSdkVersion 30
+
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildFeatures {
+        viewBinding = true
+        dataBinding = false
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+        freeCompilerArgs += '-Xopt-in=kotlin.RequiresOptIn'
+    }
+}
+
+kapt {
+    correctErrorTypes = true
+
+    javacOptions {
+        option("-Xmaxerrors", 1000)
+        option("-Adagger.fastInit=enabled")
+        option("-Adagger.experimentalDaggerErrorMessages=enabled")
+    }
+}
+
+dependencies {
+    kapt "com.google.dagger:hilt-android-compiler:$ver_hilt"
+
+    implementation "androidx.activity:activity-ktx:$ver_androidx_activity"
+    implementation "androidx.appcompat:appcompat:$ver_androidx_appcompat"
+    implementation "androidx.constraintlayout:constraintlayout:$ver_androidx_constraintlayout"
+    implementation "androidx.core:core-ktx:$ver_androidx_core"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$ver_androidx_livedata"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$ver_androidx_viewmodel"
+    implementation "androidx.navigation:navigation-fragment-ktx:$ver_androidx_navigation"
+    implementation "androidx.navigation:navigation-ui-ktx:$ver_androidx_navigation"
+    implementation "androidx.recyclerview:recyclerview:$ver_androidx_recyclerview"
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:$ver_androidx_swiperefreshlayout"
+    implementation "com.github.kirich1409:viewbindingpropertydelegate-noreflection:$ver_viewbindingpropertydelegate"
+    implementation "com.google.android.material:material:$ver_material"
+    implementation "com.google.dagger:hilt-android:$ver_hilt"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:$ver_retrofit_kotlinxconverter"
+    implementation "com.squareup.okhttp3:logging-interceptor:$ver_retrofit_logginginterceptor"
+    implementation "com.squareup.retrofit2:retrofit:$ver_retrofit"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$ver_kotlin"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$ver_kotlinx_coroutines"
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:$ver_kotlinx_serialization"
+
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+
+    testImplementation "junit:junit:$ver_junit"
+
+    androidTestImplementation "androidx.test.espresso:espresso-core:$ver_androidxtest_espresso"
+    androidTestImplementation "androidx.test.ext:junit:$ver_androidxtest_junit"
+}

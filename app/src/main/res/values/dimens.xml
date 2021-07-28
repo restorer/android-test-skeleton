@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="core__offset">16dp</dimen>
+    <dimen name="core__offset_sm">8dp</dimen>
+
+    <dimen name="imdb__thumb_height">240dp</dimen>
+</resources>

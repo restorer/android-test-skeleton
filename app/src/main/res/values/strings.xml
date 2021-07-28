@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="core__app_name">Test</string>
+    <string name="core__network_error">Network error</string>
+
+    <string name="main__jokes">Jokes</string>
+    <string name="main__imdb">IMDB</string>
+
+    <string name="jokes__api_error">API error</string>
+    <string name="jokes__id_format">id%s</string>
+
+    <string name="imdb__api_error">API error: %s</string>
+</resources>
